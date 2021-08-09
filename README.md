@@ -1,5 +1,5 @@
 # line-profiler-decorator
-Wrapper around (line-profiler)[https://github.com/rkern/line_profiler] adding a few features as an decorator
+Wrapper around [line-profiler](https://github.com/rkern/line_profiler) adding a few features as an decorator
 
 ## Install
 ```shell
