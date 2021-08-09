@@ -1,9 +1,9 @@
 # line-profiler-decorator
-Line profiler Output time usage per line
+Wrapper around (line-profiler)[https://github.com/rkern/line_profiler] adding a few features as an decorator
 
 ## Install
 ```shell
-pip install line_profiler_decorator
+pip install line-profiler-decorator
 ```
 
 ## Usage
@@ -51,7 +51,7 @@ def slow_function():
 ```
 
 ### Aggregate results
-Aggregate the results of multiple runs of the decorated function
+Aggregate the results of multiple calls to the decorated function
 ```python
 @profiler(aggregate=True)
 def slow_function():

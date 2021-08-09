@@ -17,7 +17,7 @@ with open(path.join(here, 'README.md'), encoding='utf-8') as f:
 setup(
     name='line-profiler-decorator',
 
-    version='0.0.1',
+    version='0.0.2',
 
     description='Line profiler Output time usage per line',
     long_description=long_description,
@@ -25,7 +25,7 @@ setup(
 
     # The project's main homepage.
     url='https://github.com/nano-labs/line-profiler-decorator',
-    download_url='https://github.com/nano-labs/line-profiler-decorator/archive/release/0.0.1.zip',
+    download_url='https://github.com/nano-labs/line-profiler-decorator/archive/release/0.0.2.zip',
 
     # Author details
     author='Fabio Pachelli Pacheco',
