@@ -40,3 +40,51 @@ def function_with_grouped_aggregations(number):
 def run_function_with_grouped_aggregations(n=10):
     for _ in range(n):
         function_with_grouped_aggregations(_)
+
+
+def memory_profiler(*args, **kwargs):
+    """Line by line memory profiler.
+
+    :param args[0]: If defined will output usage to the file otherwise print
+        usage to stdout.
+    """
+    try:
+        from memory_profiler import profile as mprofile
+    except ImportError:
+        raise Exception(
+            "memory_profiler is not installed. "
+            "You can install it with:"
+            "\n\tpip install memory_profiler"
+        )
+
+    class DummyFileDescriptor:
+        """Workaround to flush memory profiler output.
+
+        memory_profiler may write output on file but never flushes it.
+        This class forces flush on every write.
+        """
+
+        def __init__(self, filename):
+            self.file = open(filename, "a")
+
+        def write(self, line):
+            response = self.file.write(line)
+            self.file.flush()
+            return response
+
+    output_file = None
+    if args:
+        if callable(args[0]):
+            return mprofile(args[0])
+        else:
+            output_file = args[0]
+            return mprofile(stream=DummyFileDescriptor(output_file))
+
+    return mprofile
+
+
+@memory_profiler
+def bla():
+    x = [2] * 100000000
+    e = "2eee" * 10000000000
+    return x, e
